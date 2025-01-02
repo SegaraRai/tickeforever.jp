@@ -10,5 +10,12 @@
   },
   "dependencies": {
     "astro": "^5.1.2"
+  },
+  "devDependencies": {
+    "@iconify-json/si": "^1.2.3",
+    "@unocss/reset": "^0.65.3",
+    "prettier": "^3.4.2",
+    "unocss": "^0.65.3",
+    "wrangler": "^3.99.0"
   }
 }

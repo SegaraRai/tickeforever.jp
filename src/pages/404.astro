@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import hintImage from "../assets/ss-goyoui.png";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <p>
+    指定されたページが見つかりませんでした。<br />
+    <button class=":uno: text-blue-900" popovertarget="hint">
+      URL をご確認の上 、再度お試しください。
+    </button>
+  </p>
+
+  <div
+    id="hint"
+    class=":uno: w-full sm:max-w-240 backdrop:bg-black/20 backdrop:backdrop-blur-sm bg-none p-0"
+    popover
+  >
+    <div class=":uno: bg-white/10 p-4">
+      <a href={hintImage.src} target="hint">
+        <div class=":uno: relative">
+          <Image
+            class=":uno: w-full"
+            src={hintImage.src}
+            width={hintImage.width / 2}
+            height={hintImage.height / 2}
+            densities={[1.5, 2]}
+            quality="high"
+            alt="https://tickeforever.jp/l/avemujica/detail?id153220"
+          />
+          <div
+            class=":uno: absolute bottom-0 right-0 px-4 py-2 text-black text-base opacity-80"
+          >
+            &copy; BanG Dream! Project
+          </div>
+        </div>
+      </a>
+      <div id="extra-hint" class=":uno: pt-4 leading-tight invisible">
+        <a class=":uno: text-blue-900" href="/l/avemujica/detail?id153220">
+          https://tickeforever.jp/l/avemujica/detail?id153220
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  let visible = false;
+  document.getElementById("hint")!.addEventListener("toggle", (event) => {
+    if ((event as ToggleEvent).newState === "open") {
+      if (timer == null && !visible) {
+        timer = setTimeout(() => {
+          document.getElementById("extra-hint")!.style.visibility = "visible";
+          visible = true;
+          timer = null;
+        }, 30_000);
+      }
+    } else {
+      if (timer != null) {
+        clearTimeout(timer);
+        timer = null;
+      }
+    }
+  });
+</script>
