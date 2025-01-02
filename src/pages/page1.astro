@@ -22,12 +22,13 @@ const eventPlace = "日本武道館 （東京都　千代田区）";
   >
     <div class=":uno: relative">
       <Image
-        class=":uno: block w-full max-w-120"
+        class=":uno: block w-full max-w-120 aspect-ratio-video"
         src={heroImage}
         width={heroImage.width / 2}
         height={heroImage.height / 2}
         densities={[0.5, 1]}
         quality="high"
+        loading="eager"
         alt="Hero Image"
       />
       <div
