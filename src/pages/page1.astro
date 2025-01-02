@@ -1,14 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import heroImage from "../assets/ss-hero.png";
+import ogImage from "../assets/og-page1.jpg";
+import heroImage from "../assets/ss-page1-hero.png";
 import TicketCard from "../components/TicketCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 const eventTitle = "Ave Mujica 武道館LIVE Nostri Noctis";
-const eventPlace = "日本武道館 （東京都　千代田区）";
+const eventPlace = "日本武道館 （東京都 千代田区）";
 ---
 
-<Layout title={eventTitle}>
+<Layout
+  title={eventTitle}
+  og={{
+    description:
+      "公演チケットの予約・購入はTicket Foreverで！（非公式ファンサイトです。）",
+    image: ogImage.src,
+  }}
+>
   <div class=":uno: mb-12">
     <h1 class=":uno: text-3xl font-medium leading-tight mb-2">{eventTitle}</h1>
     <div class=":uno: text-blue-500 leading-tight mb-1">{eventPlace}</div>
