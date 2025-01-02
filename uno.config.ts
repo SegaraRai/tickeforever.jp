@@ -10,7 +10,8 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetIcons({
-      iconifyCollectionsNames: ["si"],
+      scale: 1,
+      warn: true,
     }),
     presetWebFonts({
       provider: "google",
@@ -19,5 +20,7 @@ export default defineConfig({
       },
     }),
   ],
-  transformers: [transformerCompileClass()],
+  transformers: [transformerCompileClass({
+    classPrefix: "u",
+  })],
 });

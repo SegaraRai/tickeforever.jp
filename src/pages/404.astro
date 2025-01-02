@@ -14,7 +14,7 @@ import Layout from "../layouts/Layout.astro";
 
   <div
     id="hint"
-    class=":uno: w-full sm:max-w-240 backdrop:bg-black/20 backdrop:backdrop-blur-sm bg-none p-0"
+    class=":uno: w-full sm:max-w-240 backdrop:bg-black/20 backdrop:backdrop-blur-sm bg-none p-0 [&,&::backdrop]:[transition-property:opacity,overlay,display] [&,&::backdrop]:transition-duration-400 [&,&::backdrop]:transition-ease-in-out [&,&::backdrop]:[transition-behavior:normal,allow-discrete,allow-discrete] [&,&::backdrop]:opacity-0 [&,&::backdrop]:popover-open-opacity-100 [@starting-style]:[&,&::backdrop]:popover-open-opacity-0"
     popover
   >
     <div class=":uno: bg-white/10 p-4">
@@ -22,7 +22,7 @@ import Layout from "../layouts/Layout.astro";
         <div class=":uno: relative">
           <Image
             class=":uno: w-full"
-            src={hintImage.src}
+            src={hintImage}
             width={hintImage.width / 2}
             height={hintImage.height / 2}
             densities={[1.5, 2]}
