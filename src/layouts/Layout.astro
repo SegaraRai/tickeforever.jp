@@ -17,7 +17,7 @@ const pageTitle = title ? `${title} - Ticket Forever` : "Ticket Forever";
 
 <!doctype html>
 <html lang="ja" class=":uno: bg-slate-100">
-  <head>
+  <head prefix="og: https://ogp.me/ns#">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
@@ -27,7 +27,7 @@ const pageTitle = title ? `${title} - Ticket Forever` : "Ticket Forever";
       og ? (
         <>
           <meta property="og:description" content={og.description} />
-          <meta property="og:image" content={og.image} />
+          <meta property="og:image" content={new URL(og.image, Astro.url)} />
         </>
       ) : (
         <meta
